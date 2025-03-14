@@ -1,14 +1,15 @@
 FROM python:3-alpine AS builder
  
 WORKDIR /app
- 
+
+RUN apk add --no-cache gcc g++ musl-dev libffi-dev 
 RUN python3 -m venv venv
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
  
 COPY requirements.txt .
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --only-binary=:all: -r requirements.txt
  
 # Stage 2
 FROM python:3-alpine AS runner
