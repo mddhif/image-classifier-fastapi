@@ -24,3 +24,9 @@ This app can be used for quick image classification tasks and can be extended fo
    ```sh
    git clone https://github.com/mddhif/image-classification-api.git
    cd image-classification-api
+
+
+
+![Alt text](images/dd-logging.png)
+![Alt text](images/dd-tracing.png)
+
