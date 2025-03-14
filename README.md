@@ -26,6 +26,7 @@ This app can be used for quick image classification tasks and can be extended fo
    cd image-classification-api
 
 
+Here are examples of log entries and trace data sent to Datadog by this FastAPI app.
 
 ![Alt text](images/dd-logging.png)
 ![Alt text](images/dd-tracing.png)
