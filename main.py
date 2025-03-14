@@ -7,8 +7,10 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import logging
+import ddtrace
+from ddtrace.contrib.asgi import TraceMiddleware
 
-
+ddtrace.patch_all()
 
 logging.basicConfig(
     filename='/tmp/dd.log',
@@ -20,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
-
+app.add_middleware(TraceMiddleware)
 logger.info("Loading the model ...")
 model = MobileNetV2(weights="imagenet")
 
